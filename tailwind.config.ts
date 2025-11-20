@@ -47,6 +47,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        navy: {
+          DEFAULT: "hsl(210 50% 25%)",
+          light: "hsl(210 45% 35%)",
+        },
+        earth: {
+          DEFAULT: "hsl(142 40% 45%)",
+          light: "hsl(142 35% 55%)",
+        },
+        sunset: {
+          DEFAULT: "hsl(28 85% 55%)",
+          light: "hsl(28 90% 65%)",
+          bright: "hsl(35 95% 70%)",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -80,10 +93,43 @@ export default {
             height: "0",
           },
         },
+        "fade-in": {
+          from: {
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+          },
+        },
+        "slide-up": {
+          from: {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.6s ease-out",
+        "slide-up": "slide-up 0.6s ease-out",
+        "float": "float 3s ease-in-out infinite",
+      },
+      backgroundImage: {
+        'hero-gradient': 'var(--hero-gradient)',
+        'section-gradient': 'var(--section-gradient)',
       },
     },
   },
