@@ -48,9 +48,22 @@ const Footer = () => {
                 Est. 2025
               </p>
               <div className="pt-4">
-                <p className="text-sm text-primary-foreground/60">
+                <p className="text-sm text-primary-foreground/60 mb-2">
                   Follow us on Facebook and Strava for updates!
                 </p>
+                <div className="pt-2">
+                  <p className="text-sm text-primary-foreground/70 mb-1">
+                    Website crafted by
+                  </p>
+                  <a
+                    href="https://carlbine-folio-hub.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:text-accent/80 transition-colors font-semibold inline-flex items-center gap-1"
+                  >
+                    Carlbine Portfolio Hub →
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -58,22 +71,14 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-primary-foreground/80 text-center md:text-left">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-primary-foreground/80 text-center">
               © {currentYear} Lubao Running Club. All rights reserved.
             </p>
-            <div className="flex items-center gap-2 text-primary-foreground/80">
-              <span>Website crafted with</span>
-              <Heart className="w-4 h-4 text-accent fill-current" />
-              <span>by</span>
-              <a
-                href="https://carlbine-folio-hub.onrender.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground hover:text-accent transition-colors font-semibold"
-              >
-                Carlbine Portfolio Hub
-              </a>
+            <div className="flex items-center gap-2 text-primary-foreground/70 text-sm">
+              <span>Made with</span>
+              <Heart className="w-3 h-3 text-accent fill-current" />
+              <span>for the running community</span>
             </div>
           </div>
         </div>
