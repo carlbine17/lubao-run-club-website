@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import lrcLogo from "@/assets/LRC.jpg";
 import lrcCover from "@/assets/lrccover.png";
 
 const Hero = () => {
@@ -23,15 +22,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="animate-fade-in">
-          <img 
-            src={lrcLogo} 
-            alt="LRC - Lubao Running Club Logo" 
-            className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 rounded-full shadow-2xl animate-float"
-          />
-        </div>
-        
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-slide-up">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 animate-slide-up drop-shadow-2xl">
           Lubao Running Club
         </h1>
         
