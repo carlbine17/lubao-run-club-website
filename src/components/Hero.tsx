@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import lrcCover from "@/assets/lrccover.png";
+import lrcLogo from "@/assets/LRC.jpg";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -22,6 +23,15 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
+        {/* Floating Logo */}
+        <div className="mb-8 flex justify-center animate-float">
+          <img 
+            src={lrcLogo} 
+            alt="Lubao Running Club Logo" 
+            className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full shadow-2xl border-4 border-primary-foreground/20"
+          />
+        </div>
+        
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 animate-slide-up drop-shadow-2xl">
           Lubao Running Club
         </h1>
