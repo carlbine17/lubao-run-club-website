@@ -40,15 +40,29 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <button 
-            onClick={() => scrollToSection('home')}
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
-          >
-            <img src={lrcLogo} alt="LRC Logo" className="w-12 h-12 rounded-full shadow-md" />
-            <span className={`font-bold text-xl ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
-              LRC
-            </span>
-          </button>
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={() => scrollToSection('home')}
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            >
+              <img src={lrcLogo} alt="LRC Logo" className="w-12 h-12 rounded-full shadow-md" />
+              <span className={`font-bold text-xl ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
+                LRC
+              </span>
+            </button>
+            <a
+              href="https://carlbine-folio-hub.onrender.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-3 py-1.5 text-sm rounded-md border transition-all ${
+                isScrolled 
+                  ? 'border-accent text-accent hover:bg-accent hover:text-accent-foreground' 
+                  : 'border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10'
+              }`}
+            >
+              Site Dev
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
