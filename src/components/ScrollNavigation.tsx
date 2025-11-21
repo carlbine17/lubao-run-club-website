@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 
 const ScrollNavigation = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [clickedSection, setClickedSection] = useState<string | null>(null);
 
   const sections = [
     { id: "home", label: "Home" },
@@ -38,6 +39,10 @@ const ScrollNavigation = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
+    
+    // Show label on mobile when clicked
+    setClickedSection(id);
+    setTimeout(() => setClickedSection(null), 2000);
   };
 
   return (
@@ -57,7 +62,11 @@ const ScrollNavigation = () => {
                 : "bg-background border-muted-foreground/40 hover:border-accent hover:scale-110"
             )}
           />
-          <span className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 bg-accent text-accent-foreground px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+          <span className={cn(
+            "absolute right-6 top-1/2 -translate-y-1/2 bg-accent text-accent-foreground px-3 py-1 rounded text-sm whitespace-nowrap transition-opacity duration-200 pointer-events-none",
+            "md:opacity-0 md:group-hover:opacity-100",
+            clickedSection === section.id ? "opacity-100" : "opacity-0 md:opacity-0"
+          )}>
             {section.label}
           </span>
         </button>
