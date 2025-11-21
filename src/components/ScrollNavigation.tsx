@@ -41,7 +41,7 @@ const ScrollNavigation = () => {
   };
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4">
+    <div className="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3 md:gap-4">
       {sections.map((section) => (
         <button
           key={section.id}
@@ -51,13 +51,13 @@ const ScrollNavigation = () => {
         >
           <div
             className={cn(
-              "w-3 h-3 rounded-full border-2 transition-all duration-300",
+              "w-2.5 h-2.5 md:w-3 md:h-3 rounded-full border-2 transition-all duration-300",
               activeSection === section.id
                 ? "bg-accent border-accent scale-125"
                 : "bg-background border-muted-foreground/40 hover:border-accent hover:scale-110"
             )}
           />
-          <span className="absolute right-6 top-1/2 -translate-y-1/2 bg-accent text-accent-foreground px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+          <span className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 bg-accent text-accent-foreground px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
             {section.label}
           </span>
         </button>

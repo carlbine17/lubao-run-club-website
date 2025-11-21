@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import ScrollNavigation from "@/components/ScrollNavigation";
 import Hero from "@/components/Hero";
@@ -10,32 +11,52 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -100px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll(".scroll-fade-in");
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll">
       <Navigation />
       <ScrollNavigation />
       <main>
-        <div id="home" className="scroll-fade-in">
+        <section id="home" className="scroll-fade-in snap-start snap-always min-h-screen">
           <Hero />
-        </div>
-        <div id="about" className="scroll-fade-in">
+        </section>
+        <section id="about" className="scroll-fade-in snap-start snap-always min-h-screen">
           <About />
-        </div>
-        <div id="mission" className="scroll-fade-in">
+        </section>
+        <section id="mission" className="scroll-fade-in snap-start snap-always min-h-screen">
           <MissionVision />
-        </div>
-        <div id="events" className="scroll-fade-in">
+        </section>
+        <section id="events" className="scroll-fade-in snap-start snap-always min-h-screen">
           <Events />
-        </div>
-        <div id="members" className="scroll-fade-in">
+        </section>
+        <section id="members" className="scroll-fade-in snap-start snap-always min-h-screen">
           <Members />
-        </div>
-        <div id="member-list" className="scroll-fade-in">
+        </section>
+        <section id="member-list" className="scroll-fade-in snap-start snap-always min-h-screen">
           <MemberList />
-        </div>
-        <div id="contact" className="scroll-fade-in">
+        </section>
+        <section id="contact" className="scroll-fade-in snap-start snap-always">
           <Contact />
-        </div>
+        </section>
       </main>
       <Footer />
     </div>
