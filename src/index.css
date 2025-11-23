@@ -106,4 +106,15 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  .scroll-fade-in {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
