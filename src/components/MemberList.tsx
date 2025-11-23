@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 const MemberList = () => {
   const members = [
-    { name: "Juan Dela Cruz", role: "President", specialty: "Marathon Runner" },
+    { name: "Ron Macatuno", role: "Founder", specialty: "Marathon Runner" },
     { name: "Maria Santos", role: "Vice President", specialty: "Trail Running" },
     { name: "Jose Reyes", role: "Secretary", specialty: "5K Specialist" },
     { name: "Ana Garcia", role: "Treasurer", specialty: "Half Marathon" },

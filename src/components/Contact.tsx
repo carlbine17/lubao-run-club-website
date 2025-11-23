@@ -13,7 +13,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      content: "lubaorunningclub@gmail.com",
+      content: "lubaorunclub@gmail.com",
       link: "mailto:lubaorunningclub@gmail.com"
     },
     {
@@ -38,13 +38,13 @@ const Contact = () => {
         </svg>
       ),
       name: "Strava",
-      url: "https://www.strava.com/clubs/lrc",
+      url: "https://www.strava.com/club/LubaoRunClub?fbclid=IwY2xjawOP8nhleHRuA2FlbQIxMABicmlkETFxTTN2c2ZockZCeko1V3d5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnMAABCK37r0wHwVc_SUj_c7LQcv3VNH5JwWkurB2PfHaweQpNoiFWwWLouy_aem_Vrt0lY_tz21pF9IZlkqpkQ",
       description: "Join our Strava club and track your runs with us"
     },
     {
       icon: <Instagram className="w-6 h-6" />,
       name: "Instagram",
-      url: "#",
+      url: "https://www.instagram.com/lrc_lubaorunclub?fbclid=IwY2xjawOP8gVleHRuA2FlbQIxMABicmlkETFxTTN2c2ZockZCeko1V3d5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHk4JXXdeZ57CXC18qk4MKEAdusaHB0Dlh6RDXhR4BfkvBRUv9KnbE8b4LvPK_aem_pbqPX0CpgvyzymreDWQbJg",
       description: "See photos from our runs and events"
     },
     {
@@ -54,7 +54,7 @@ const Contact = () => {
         </svg>
       ),
       name: "TikTok",
-      url: "#",
+      url: "https://www.tiktok.com/@lrc_lubaorunclub?fbclid=IwY2xjawOP8mRleHRuA2FlbQIxMABicmlkETFxTTN2c2ZockZCeko1V3d5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHrtIYYfpOVXyPvOfQXJJHslmdIvr9gBondiNcjRnpGZtO6llXLuZSRqnYrnd_aem_cQqEQVPqTvv2Npx41JiakA",
       description: "Watch our running videos and challenges"
     }
   ];

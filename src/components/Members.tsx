@@ -80,7 +80,7 @@ const Members = () => {
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Become a Member Today
+                  Become a Member Today for free
                 </Button>
               </div>
             </CardContent>
