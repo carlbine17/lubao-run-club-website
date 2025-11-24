@@ -38,7 +38,7 @@ const Contact = () => {
         </svg>
       ),
       name: "Strava",
-      url: "https://www.strava.com/club/LubaoRunClub?fbclid=IwY2xjawOP8nhleHRuA2FlbQIxMABicmlkETFxTTN2c2ZockZCeko1V3d5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnMAABCK37r0wHwVc_SUj_c7LQcv3VNH5JwWkurB2PfHaweQpNoiFWwWLouy_aem_Vrt0lY_tz21pF9IZlkqpkQ",
+      url: "https://strava.app.link/2XWgH4Q0xYb",
       description: "Join our Strava club and track your runs with us"
     },
     {
