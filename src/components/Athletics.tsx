@@ -7,18 +7,18 @@ const Athletics = () => {
   const athletes = [
     { name: "Mark Johnson", category: "100m Sprint", isWinner: true, achievement: "1st Place Regional" },
     { name: "Sarah Chen", category: "Marathon", isWinner: true, achievement: "Gold Medal" },
-    { name: "David Torres", category: "400m Relay", isWinner: false },
-    { name: "Lisa Martinez", category: "Long Jump", isWinner: true, achievement: "Provincial Champion" },
+    { name: "David Torres", category: "400m Sprint", isWinner: false },
+    { name: "Lisa Martinez", category: "5K Run", isWinner: true, achievement: "Provincial Champion" },
     { name: "Kevin Santos", category: "5000m Run", isWinner: false },
-    { name: "Angela Reyes", category: "High Jump", isWinner: false },
+    { name: "Angela Reyes", category: "Half Marathon", isWinner: false },
     { name: "Michael Cruz", category: "200m Sprint", isWinner: true, achievement: "Bronze Medal" },
     { name: "Emma Rodriguez", category: "800m Run", isWinner: false },
-    { name: "Ryan Garcia", category: "Triple Jump", isWinner: false },
+    { name: "Ryan Garcia", category: "10K Run", isWinner: false },
     { name: "Nicole Fernandez", category: "1500m Run", isWinner: true, achievement: "Silver Medal" },
     { name: "Joshua Villanueva", category: "4x100m Relay", isWinner: false },
     { name: "Sophia Lopez", category: "3000m Steeplechase", isWinner: false },
-    { name: "Daniel Ramos", category: "Javelin Throw", isWinner: true, achievement: "District Champion" },
-    { name: "Olivia Mercado", category: "Shot Put", isWinner: false },
+    { name: "Daniel Ramos", category: "Ultra Marathon", isWinner: true, achievement: "District Champion" },
+    { name: "Olivia Mercado", category: "Cross Country", isWinner: false },
     { name: "Carlos Mendoza", category: "10000m Run", isWinner: false },
   ];
 
@@ -26,27 +26,33 @@ const Athletics = () => {
   const allAthletes = athletes;
 
   return (
-    <section id="athletics" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        {/* Hero Image */}
-        <div className="relative w-full h-64 md:h-96 rounded-xl overflow-hidden mb-16 shadow-lg">
+    <section id="athletics" className="relative bg-background">
+      {/* Background Image with Overlay - Extended Hero */}
+      <div className="relative">
+        <div className="absolute inset-0 z-0">
           <img 
             src={athleticsImage} 
             alt="LRC Athletic Team" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent flex items-end justify-center pb-8">
-            <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
-                LRC Athletic Team
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Excellence in Track and Field
-              </p>
-            </div>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
         </div>
 
+        {/* Hero Content */}
+        <div className="relative z-10 py-20 md:py-32">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 drop-shadow-lg">
+              LRC Athletic Team
+            </h2>
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8">
+              Excellence in Track and Field
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Content Section */}
+      <div className="container mx-auto px-4 py-20">
         {/* Winners Highlight Section */}
         <div className="mb-16">
           <div className="text-center mb-8">
