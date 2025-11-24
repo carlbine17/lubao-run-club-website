@@ -30,6 +30,7 @@ const Navigation = () => {
     { label: 'Events', id: 'events' },
     { label: 'Members', id: 'members' },
     { label: 'Member List', id: 'member-list' },
+    { label: 'Athletics', id: 'athletics' },
     { label: 'Contact', id: 'contact' },
   ];
 
