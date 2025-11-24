@@ -12,6 +12,7 @@ const ScrollNavigation = () => {
     { id: "events", label: "Events" },
     { id: "members", label: "Members" },
     { id: "member-list", label: "Member List" },
+    { id: "athletics", label: "Athletics" },
     { id: "contact", label: "Contact" },
   ];
 

@@ -7,6 +7,7 @@ import MissionVision from "@/components/MissionVision";
 import Events from "@/components/Events";
 import Members from "@/components/Members";
 import MemberList from "@/components/MemberList";
+import Athletics from "@/components/Athletics";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -53,6 +54,9 @@ const Index = () => {
         </section>
         <section id="member-list" className="scroll-fade-in snap-start snap-always min-h-screen">
           <MemberList />
+        </section>
+        <section id="athletics" className="scroll-fade-in snap-start snap-always min-h-screen">
+          <Athletics />
         </section>
         <section id="contact" className="scroll-fade-in snap-start snap-always">
           <Contact />
