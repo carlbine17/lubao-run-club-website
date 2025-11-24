@@ -28,7 +28,7 @@ const Navigation = () => {
     { label: 'About', id: 'about' },
     { label: 'Mission & Vision', id: 'mission' },
     { label: 'Events', id: 'events' },
-    { label: 'Members', id: 'members' },
+    { label: 'Membership', id: 'members' },
     { label: 'Member List', id: 'member-list' },
     { label: 'Athletics', id: 'athletics' },
     { label: 'Contact', id: 'contact' },
