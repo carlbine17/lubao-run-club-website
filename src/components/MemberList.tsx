@@ -1,21 +1,24 @@
-import { Users } from "lucide-react";
+import { Users, User } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import jmLingadPhoto from "@/assets/jm-lingad.jpg";
 
 const MemberList = () => {
   const members = [
-    { name: "Ron Macatuno", role: "Founder", specialty: "Marathon Runner" },
-    { name: "Maria Santos", role: "Vice President", specialty: "Trail Running" },
-    { name: "Jose Reyes", role: "Secretary", specialty: "5K Specialist" },
-    { name: "Ana Garcia", role: "Treasurer", specialty: "Half Marathon" },
-    { name: "Pedro Martinez", role: "Training Coordinator", specialty: "Sprint Coach" },
-    { name: "Lisa Fernandez", role: "Events Manager", specialty: "Ultra Marathon" },
-    { name: "Carlos Villanueva", role: "Social Media Manager", specialty: "10K Runner" },
-    { name: "Sofia Rodriguez", role: "Member", specialty: "Beginner Runner" },
-    { name: "Miguel Torres", role: "Member", specialty: "Cross Country" },
-    { name: "Elena Ramos", role: "Member", specialty: "Long Distance" },
-    { name: "Roberto Cruz", role: "Member", specialty: "Track Runner" },
-    { name: "Carmen Lopez", role: "Member", specialty: "Fun Runner" },
+    { 
+      name: "Ron Macatuno", 
+      role: "Founder", 
+      specialty: "Marathon Runner",
+      photo: null,
+      quote: null
+    },
+    { 
+      name: "JM Lingad", 
+      role: "Co-Founder", 
+      specialty: "Runner",
+      photo: jmLingadPhoto,
+      quote: "A runner is not defined by speed, but by the determination to keep going."
+    },
   ];
 
   return (
@@ -34,16 +37,24 @@ const MemberList = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {members.map((member, index) => (
             <Card 
               key={index} 
               className="border-border hover:border-accent transition-all duration-300 hover:shadow-lg group"
             >
               <CardContent className="pt-6 pb-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <Users className="w-6 h-6 text-accent" />
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="w-24 h-24 rounded-full overflow-hidden bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:ring-2 group-hover:ring-accent transition-all">
+                    {member.photo ? (
+                      <img 
+                        src={member.photo} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <User className="w-12 h-12 text-accent" />
+                    )}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-foreground mb-2">
@@ -55,6 +66,11 @@ const MemberList = () => {
                     <p className="text-sm text-muted-foreground">
                       {member.specialty}
                     </p>
+                    {member.quote && (
+                      <p className="text-sm italic text-muted-foreground mt-3 border-l-2 border-accent pl-3 text-left">
+                        "{member.quote}"
+                      </p>
+                    )}
                   </div>
                 </div>
               </CardContent>
