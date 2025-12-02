@@ -19,6 +19,13 @@ const MemberList = () => {
       photo: jmLingadPhoto,
       quote: "A runner is not defined by speed, but by the determination to keep going."
     },
+    { 
+      name: "Dr. Ira Jiao", 
+      role: "Co-Founder", 
+      specialty: "Runner",
+      photo: null,
+      quote: null
+    },
   ];
 
   return (
