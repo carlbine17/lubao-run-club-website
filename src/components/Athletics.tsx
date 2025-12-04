@@ -26,7 +26,8 @@ const parseCSV = (csv: string): Athlete[] => {
     if (!matches) continue;
     
     const values = matches.map(m => m.replace(/^"|"$|,$/g, '').trim());
-    const [name, category, achievement] = values;
+    // Skip Timestamp (index 0), use Name (1), Category (2), Award/s (3)
+    const [, name, category, achievement] = values;
     
     if (name && category) {
       athletes.push({
