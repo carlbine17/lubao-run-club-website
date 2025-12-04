@@ -1,41 +1,58 @@
-import { Trophy, Medal } from "lucide-react";
+import { Trophy, Medal, Loader2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useQuery } from "@tanstack/react-query";
 import athleticsImage from "@/assets/athletics.jpg";
 
+interface Athlete {
+  name: string;
+  category: string;
+  achievement: string;
+}
+
+const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1I870zYlEDWWzuc6CDzYRyFdFoXvHbBTioF43lzBMIho/export?format=csv&gid=1658907765";
+
+const parseCSV = (csv: string): Athlete[] => {
+  const lines = csv.split('\n');
+  const athletes: Athlete[] = [];
+  
+  // Skip header row
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    
+    // Parse CSV handling quoted fields
+    const matches = line.match(/("([^"]*)"|[^,]*)(,|$)/g);
+    if (!matches) continue;
+    
+    const values = matches.map(m => m.replace(/^"|"$|,$/g, '').trim());
+    const [name, category, achievement] = values;
+    
+    if (name && category) {
+      athletes.push({
+        name,
+        category,
+        achievement: achievement || ''
+      });
+    }
+  }
+  
+  return athletes;
+};
+
+const fetchAthletes = async (): Promise<Athlete[]> => {
+  const response = await fetch(SPREADSHEET_URL);
+  if (!response.ok) throw new Error('Failed to fetch athletes');
+  const csv = await response.text();
+  return parseCSV(csv);
+};
+
 const Athletics = () => {
-  const athletes = [
-    { 
-      name: "Jaen Laxamana", 
-      category: "800m, 1500m", 
-      achievement: "Zonal Meet: 800m-2nd, 1500m-1st | Inter Zonal Meet: 800m-4th, 1500m-5th" 
-    },
-    { 
-      name: "Reiven Jiro L. Yanga", 
-      category: "3000m, 5000m, 1500m, 10,000m", 
-      achievement: "Elementary 800m-Silver | Grade 7: 1500m-Silver, 10,000m-Bronze | Grade 8: 1500m-Bronze, 3000m-Bronze, 5000m-Silver | Grade 9: 3000m-Gold, 5000m-Gold & Silver" 
-    },
-    { 
-      name: "Michael Angelo Sunga", 
-      category: "5000m, 4x100m, 4x400m", 
-      achievement: "Zonal: 5K-Silver, 4x100-Silver, 4x400-Gold, Triple Jump-Bronze | Inter Zonal: 5K-Bronze" 
-    },
-    { 
-      name: "Lance Jorel A. Ramos", 
-      category: "800m, 1500m, 4x400m", 
-      achievement: "Zonal Meet: 800m-Gold, 1500m-Silver, 4x400m-Gold | Inter Zonal Meet: 800m-3rd, 1500m-6th, 4x400m-4th" 
-    },
-    { 
-      name: "Christian Lery Mauricio", 
-      category: "400m, 400m Hurdles", 
-      achievement: "Zonal Meet: 400m-Gold, 400m Hurdles-Gold | Inter Zonal Meet: 400m-Silver, 400m Hurdles-Bronze" 
-    },
-    { 
-      name: "Frince Eryzole V. Cordova", 
-      category: "400m", 
-      achievement: "Gold, Silver" 
-    },
-  ];
+  const { data: athletes = [], isLoading, error } = useQuery({
+    queryKey: ['athletes'],
+    queryFn: fetchAthletes,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
 
   return (
     <section id="athletics" className="relative bg-background">
@@ -77,33 +94,45 @@ const Athletics = () => {
             <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {athletes.map((athlete, index) => (
-              <Card 
-                key={index} 
-                className="border-border hover:border-accent hover:shadow-lg transition-all duration-300 group"
-              >
-                <CardContent className="pt-6 pb-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/30 transition-colors">
-                      <Medal className="w-6 h-6 text-accent" />
+          {isLoading ? (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="w-8 h-8 animate-spin text-accent" />
+            </div>
+          ) : error ? (
+            <div className="text-center py-12 text-muted-foreground">
+              Failed to load athletes. Please try again later.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+              {athletes.map((athlete, index) => (
+                <Card 
+                  key={index} 
+                  className="border-border hover:border-accent hover:shadow-lg transition-all duration-300 group"
+                >
+                  <CardContent className="pt-6 pb-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/30 transition-colors">
+                        <Medal className="w-6 h-6 text-accent" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-semibold text-foreground mb-2">
+                          {athlete.name}
+                        </h4>
+                        <Badge variant="secondary" className="mb-2">
+                          {athlete.category}
+                        </Badge>
+                        {athlete.achievement && (
+                          <p className="text-xs text-muted-foreground mt-2 line-clamp-3">
+                            {athlete.achievement}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-foreground mb-2">
-                        {athlete.name}
-                      </h4>
-                      <Badge variant="secondary" className="mb-2">
-                        {athlete.category}
-                      </Badge>
-                      <p className="text-xs text-muted-foreground mt-2 line-clamp-3">
-                        {athlete.achievement}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
