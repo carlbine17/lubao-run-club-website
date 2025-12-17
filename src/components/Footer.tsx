@@ -56,7 +56,7 @@ const Footer = () => {
                     Website crafted by
                   </p>
                   <a
-                    href="https://carlbine-folio-hub.onrender.com/"
+                    href="https://www.carlbine.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-accent hover:text-accent/80 transition-colors font-semibold inline-flex items-center gap-1"
